@@ -1,5 +1,6 @@
 package bot.listeners;
 
+import bot.Secrets;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -19,8 +20,9 @@ public class ChatAI extends ListenerAdapter {
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
         if(responseChannels.contains(event.getChannel().getIdLong()) && !event.getMember().getUser().isBot()) {
             try {
-                URL api = new URL("https://api.snowflakedev.xyz/chatbot?message=" + event.getMessage().getContentRaw().replaceAll(" ", "%20"));
+                URL api = new URL("https://api.snowflakedev.cf/api/chatbot?message=" + event.getMessage().getContentRaw().replaceAll(" ", "%20"));
                 HttpsURLConnection con = (HttpsURLConnection) api.openConnection();
+                con.setRequestProperty("Authorization", Secrets.APIKEY);
                 con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36");
                 BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String input = bf.readLine();
@@ -36,6 +38,7 @@ public class ChatAI extends ListenerAdapter {
     @Override
     public void onReady(@Nonnull ReadyEvent event) {
         responseChannels.add(778357890012151869L);
+        responseChannels.add(781541775495266325L);
     }
 
 }

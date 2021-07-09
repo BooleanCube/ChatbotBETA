@@ -16,7 +16,7 @@ public class Main {
                 .setChunkingFilter(ChunkingFilter.ALL)
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
-                .setActivity(Activity.listening("to you!"))
+                .setActivity(Activity.listening("you!"))
                 .addEventListeners(new ChatAI())
                 .build().awaitReady();
     }
