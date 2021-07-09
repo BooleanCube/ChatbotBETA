@@ -1,2 +1,2 @@
 # Chatbot BETA
-The project is still in BETA because the API had moved their platform onto a new place. I will edit it to work with the new api very soon.
+This is an AI discord bot that you can talk to and it will respond back to you. This is a great API and works fantastically, however, their rate limitation is very low and only has 20 requests per minute. That is why the project is still in BETA.
